@@ -47,4 +47,8 @@ class MapPlane {
   void render() {
     surface.render(buffer);
   }
+  
+  void jumpToRandom(){
+    video.jump(random(video.duration()));
+  }
 }

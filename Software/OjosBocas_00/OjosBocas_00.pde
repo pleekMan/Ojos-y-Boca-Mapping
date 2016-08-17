@@ -13,7 +13,7 @@ void setup() {
 
   keyStone = new Keystone(this);
 
-  videoCount = 2;
+  //videoCount = 2;
   mapPlanes = new ArrayList<MapPlane>();
   createMapPlanes();
 
@@ -41,13 +41,18 @@ void createMapPlanes() {
     String names[] = videoFolder.list();
     println(names);
 
-
     for (int i=0; i<names.length; i++) {
       Movie video = new Movie(this, videoFolder.getAbsolutePath() + "/" + names[i]);
       MapPlane mapPlane = new MapPlane(video, i);
 
       mapPlanes.add(mapPlane);
     }
+  }
+}
+
+void randomizeVideos(){
+  for (int i=0; i<mapPlanes.size(); i++) {
+    mapPlanes.get(i).jumpToRandom();
   }
 }
 
@@ -62,6 +67,10 @@ void keyPressed() {
   }
   if (key == 's') {
     keyStone.save();
+  }
+  
+  if (key == 'r') {
+    randomizeVideos();
   }
 }
 
