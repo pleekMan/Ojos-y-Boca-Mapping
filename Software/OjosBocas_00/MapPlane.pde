@@ -21,10 +21,12 @@ class MapPlane {
     //println("Buffer Width:Height = " + buffer.width + ":" + buffer.height);
 
     surface = keyStone.createCornerPinSurface(video.width, video.height, 3);
-
+    surface.moveTo(video.width, 20);
+     
     ID = _ID;
     
     isVisible = true;
+    
   }
 
   void update() {
@@ -33,7 +35,13 @@ class MapPlane {
       video.read();
     }
 
-
+    /*
+    fill(0,200);
+    rect(surface.x, surface.y, 300, 20);
+    fill(255,255,0);
+    text(videoName,surface.x, surface.y + 10);
+    */
+    
     buffer.beginDraw();
     
     buffer.background(0);
@@ -47,10 +55,10 @@ class MapPlane {
       buffer.fill(255);
       buffer.stroke(0);
       buffer.textSize(30);
-      buffer.text(ID, 5, 50);
+      buffer.text(ID, 5, 40);
       
       buffer.textSize(15);
-      buffer.text(videoName,5, 70);
+      buffer.text(videoName,5, 60);
     }
 
     buffer.endDraw();
