@@ -1,4 +1,15 @@
-import controlP5.*; //<>//
+/* //<>//
+BUGS CONOCIDOS:
+
+Keystone guarda un elemento dentro del XML por cada CornirPinSurface.
+Si en un momento se guarda el seteo con cierta cantidad de CornerPinSurfaces, y despues 
+se borra un video de la carpeta, el XML no se actualiza solo, y tira un error al Loadear los settings,
+ya que tiene mas Surfaces que los videos a los que se le pueden aplicar esos seteos de Surface.
+Acceder manualmente al XML y borrar lo necesario.
+
+*/
+
+import controlP5.*;
 import processing.video.*;
 import deadpixel.keystone.*;
 
